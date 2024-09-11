@@ -1,8 +1,3 @@
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
 /** @typedef {import("prettier").Config} PrettierConfig */
 /** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
 /** @typedef {import("prettier-plugin-svelte").PluginConfig} SvelteConfig */
@@ -15,7 +10,6 @@ const config = {
     'prettier-plugin-svelte',
     '@ianvs/prettier-plugin-sort-imports',
   ],
-  tailwindConfig: path.join(__dirname, 'tailwind.config.ts'),
   tailwindFunctions: ['clsx', 'cva', 'cn'],
   importOrder: [
     '<TYPES>',
