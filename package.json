@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json.schemastore.org/package",
+  "name": "@nwlnexus/config",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0-semantically-released",
+  "main": "index.js",
+  "type": "module",
+  "keywords": [
+    "config",
+    "nwlnexus",
+    "prettier",
+    "typescript",
+    "eslint"
+  ],
+  "imports": {
+    "#/*": "./*"
+  },
+  "author": {
+    "name": "Nigel Williams-Lucas",
+    "email": "info@nwlnexus.com",
+    "url": "https://github.com/nwlnexus"
+  },
+  "homepage": "https://github.com/nwlnexus/config#readme",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./eslint": "./eslint.js",
+    "./typescript": "./library.json",
+    "./react-library": "./react-library.json",
+    "./reset.d.ts": "./reset.d.ts",
+    "./tsconfig/remix": "./remix.json",
+    "./tsconfig/worker": "./worker.json",
+    "./prettier": "./prettier.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier . --write",
+    "typecheck": "tsc",
+    "validate": "run-p -l format lint typecheck"
+  },
+  "dependencies": {
+    "@epic-web/config": "^1.12.0",
+    "@eslint/compat": "^1.1.1",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.10.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.3.1",
+    "@remix-run/eslint-config": "^2.12.0",
+    "@total-typescript/ts-reset": "^0.5.1",
+    "@types/eslint": "^8.56.12",
+    "@types/eslint-config-prettier": "^6.11.3",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-import-x": "^3.1.0",
+    "eslint-plugin-jest-dom": "^5.4.0",
+    "eslint-plugin-no-only-tests": "^3.3.0",
+    "eslint-plugin-react": "^7.35.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-svelte": "^2.43.0",
+    "eslint-plugin-testing-library": "^6.3.0",
+    "eslint-plugin-unused-imports": "^4.1.3",
+    "eslint-plugin-vitest": "^0.5.4",
+    "globals": "^15.9.0",
+    "prettier-plugin-svelte": "^3.2.6",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "typescript-eslint": "^8.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "@types/react": "^18.3.5",
+    "eslint": "^9.10.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "typescript": "^5.6.2"
+  },
+  "peerDependencies": {
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3"
+  },
+  "prettier": "./prettier.js",
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
+}
