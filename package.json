@@ -17,6 +17,17 @@
   "imports": {
     "#/*": "./*"
   },
+  "files": [
+    "index.js",
+    "base.json",
+    "eslint.js",
+    "library.json",
+    "react-library.json",
+    "reset.d.ts",
+    "remix.json",
+    "worker.json",
+    "prettier.js"
+  ],
   "author": {
     "name": "Nigel Williams-Lucas",
     "email": "info@nwlnexus.com",
