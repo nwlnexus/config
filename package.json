@@ -49,8 +49,8 @@
     "./typescript": "./library.json",
     "./react-library": "./react-library.json",
     "./reset.d.ts": "./reset.d.ts",
-    "./tsconfig/remix": "./remix.json",
-    "./tsconfig/worker": "./worker.json",
+    "./remix": "./remix.json",
+    "./worker": "./worker.json",
     "./prettier": "./prettier.js"
   },
   "scripts": {
