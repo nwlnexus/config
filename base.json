@@ -21,7 +21,7 @@
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
 
-    "module": "Preserve",
+    "module": "ES2022",
     "moduleResolution": "Bundler",
     "noEmit": true
   }
