@@ -1,36 +1,47 @@
 /** @typedef {import("prettier").Config} PrettierConfig */
 /** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
 /** @typedef {import("prettier-plugin-svelte").PluginConfig} SvelteConfig */
-/** @typedef {import("@ianvs/prettier-plugin-sort-imports").PluginConfig} SortImportsConfig */
 
-/** @type { PrettierConfig | SortImportsConfig | TailwindConfig | SvelteConfig } */
+/** @type { PrettierConfig | TailwindConfig | SvelteConfig } */
 const config = {
-  plugins: [
-    'prettier-plugin-tailwindcss',
-    'prettier-plugin-svelte',
-    '@ianvs/prettier-plugin-sort-imports',
-  ],
-  tailwindFunctions: ['clsx', 'cva', 'cn'],
-  importOrder: [
-    '<TYPES>',
-    '^(react/(.*)$)|^(react$)|^(react-native(.*)$)',
-    '^(next/(.*)$)|^(next$)',
-    '<THIRD_PARTY_MODULES>',
-    '',
-    '<TYPES>^@repo',
-    '^@repo/(.*)$',
-    '',
-    '<TYPES>^[.|..|~]',
-    '^~/',
-    '^[../]',
-    '^[./]',
-  ],
-  importOrderParserPlugins: ['typescript', 'jsx', 'decorators-legacy'],
-  importOrderTypeScriptVersion: '4.4.0',
-  useTabs: false,
-  singleQuote: true,
-  printWidth: 100,
+  arrowParens: 'always',
+	bracketSameLine: false,
+	bracketSpacing: true,
+  embeddedLanguageFormatting: 'auto',
+	endOfLine: 'lf',
+  htmlWhitespaceSensitivity: 'css',
+	insertPragma: false,
+	jsxSingleQuote: false,
+	printWidth: 100,
+	proseWrap: 'always',
+	quoteProps: 'as-needed',
+	requirePragma: false,
+	semi: false,
+	singleAttributePerLine: false,
+	singleQuote: true,
+	tabWidth: 2,
+	trailingComma: 'all',
+	useTabs: false,
   overrides: [
+    // formatting the package.json with anything other than spaces will cause
+		// issues when running install...
+		{
+			files: ['**/package.json'],
+			options: {
+				useTabs: false,
+			},
+		},
+		{
+			files: ['**/*.mdx'],
+			options: {
+				// This stinks, if you don't do this, then an inline component on the
+				// end of the line will end up wrapping, then the next save prettier
+				// will add an extra line break. Super annoying and probably a bug in
+				// prettier, but until it's fixed, this is the best we can do.
+				proseWrap: 'preserve',
+				htmlWhitespaceSensitivity: 'ignore',
+			},
+		},
     {
       files: '*.json.hbs',
       options: {
@@ -50,6 +61,12 @@ const config = {
       },
     },
   ],
+  plugins: [
+    'prettier-plugin-tailwindcss',
+    'prettier-plugin-svelte',
+  ],
+  tailwindFunctions: ['clsx', 'cva', 'cn'],
+  tailwindAttributes: ['class', 'className', 'ngClass', '.*[cC]lassName'],
 };
 
 export default config;

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
-  "extends": "./base.json",
+  "display": "Cloudflare Worker",
+  "extends": "./typescript.json",
   "compilerOptions": {
     "module": "es2022",
     "moduleResolution": "Bundler",
