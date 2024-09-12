@@ -1,1 +1,1 @@
-throw new Error('@epic-web/config does not have a default export module');
+throw new Error('@nwlnexus/config does not have a default export module')

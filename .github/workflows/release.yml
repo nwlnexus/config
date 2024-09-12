@@ -31,9 +31,10 @@ jobs:
     name: 🚀 Release
     needs: [validate]
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'nwlnexus/config' &&
-      contains('refs/heads/main,refs/heads/beta,refs/heads/next,refs/heads/alpha',
-      github.ref) && github.event_name == 'push' }}
+    if:
+      ${{ github.repository == 'nwlnexus/config' &&
+      contains('refs/heads/main,refs/heads/beta,refs/heads/next,refs/heads/alpha', github.ref) &&
+      github.event_name == 'push' }}
     steps:
       - name: ⬇️ Checkout repo
         uses: actions/checkout@v4
