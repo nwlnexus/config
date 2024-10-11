@@ -1,5 +1,4 @@
 import { fixupPluginRules } from '@eslint/compat'
-// @ts-expect-error Expected error
 import js from '@eslint/js'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import svelte from 'eslint-plugin-svelte'
@@ -25,11 +24,12 @@ const hasSvelte = has('svelte')
 const hasTestingLibrary = has('@testing-library/dom')
 const hasJestDom = has('@testing-library/jest-dom')
 const hasVitest = has('vitest')
-const vitestFiles = ['**/__tests__/**/*', '**/*.test.*']
+const vitestFiles = ['**/__tests__/**/*', '**/*.test.*', '**/*.spec.*']
 const testFiles = ['**/tests/**', '**/#tests/**', ...vitestFiles]
 const playwrightFiles = ['**/e2e/**']
 
-export const config = [
+
+const config = [
   js.configs.recommended,
   ...tsEslint.configs.recommended,
   eslintConfigPrettier,
@@ -75,7 +75,6 @@ export const config = [
     ? {
         files: ['**/*.tsx', '**/*.jsx'],
         plugins: {
-          // @ts-expect-error Expected error
           react: (await import('eslint-plugin-react')).default,
         },
         languageOptions: {
@@ -292,7 +291,7 @@ export const config = [
     : null,
   {
     ignores: [
-      '**/.wrangler/',
+      '**/.wrangler/**',
       '**/.cache/**',
       '**/node_modules/**',
       '**/build/**',
@@ -300,9 +299,10 @@ export const config = [
       '**/playwright-report/**',
       '**/server-build/**',
       '**/dist/**',
-      '**/build/',
-      '.svelte-kit/',
-      'dist/',
+      '**/build/**',
+      '**/coverage/**',
+      '**/.svelte-kit/**',
+      '**/dist/**',
     ],
   },
 ].filter(Boolean)

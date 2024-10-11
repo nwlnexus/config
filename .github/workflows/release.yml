@@ -51,6 +51,9 @@ jobs:
       - name: 📥 Download deps
         run: pnpm install
 
+      - name: 📥 Build
+        run: pnpm run build
+
       - name: 🚀 Release
         uses: cycjimmy/semantic-release-action@v4.1.0
         with:
