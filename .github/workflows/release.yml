@@ -4,6 +4,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# Read-only by default; only the release job writes (semantic-release).
+permissions:
+  contents: read
+
 jobs:
   validate:
     name: 🔍 Validate
@@ -31,6 +35,10 @@ jobs:
     name: 🚀 Release
     needs: [validate]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     if:
       ${{ github.repository == 'nwlnexus/config' &&
       contains('refs/heads/main,refs/heads/beta,refs/heads/next,refs/heads/alpha', github.ref) &&
